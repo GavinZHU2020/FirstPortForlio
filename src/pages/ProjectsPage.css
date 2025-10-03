@@ -1,0 +1,122 @@
+/*1. page overall wrapper container */
+.page-wrapper {
+  max-width: 1400px; 
+  margin: 0 auto; 
+  padding: 3rem 4rem;
+  box-sizing: border-box;
+}
+
+/* 2. page top header area */
+.page-header-container {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.page-header-container h1 {
+  font-size: 3.5rem; 
+  color: #212529; 
+  display: inline-block;
+   margin-bottom: 1rem;
+}
+.page-header-container .page-intro {
+  max-width: 80ch;
+   margin: 0 auto; 
+   font-size: 1.1rem; 
+   color: #6c757d;
+}
+.subpage-nav {
+  text-align: left;
+   margin-bottom: 2rem;
+}
+.subpage-nav a {
+  font-weight: bold; 
+  color: #007bff; 
+  text-decoration: none;
+}
+
+/* 3. core two-column layout container */
+.main-layout-container {
+  display: flex; 
+  align-items: flex-start; 
+  gap: 4rem; 
+}
+
+/* 4. left main content area */
+.main-content {
+  flex: 1; 
+  display: flex;
+    flex-direction: column; 
+  gap: 2.5rem; 
+}
+
+/* 5. right fixed sidebar */
+.sidebar-sticky {
+  flex: 0 0 300px; 
+  position: sticky; 
+  top: 3rem; 
+}
+
+/* 7. project card and sidebar widget styles */
+.project-card-full {
+  background-color: #fff;
+   border: 1px solid #dee2e6;
+    border-radius: 8px; 
+    padding: 2rem;
+}
+.project-card-full h3 {
+  margin-top: 0; 
+  margin-bottom: 1rem; 
+  font-size: 1.8rem; 
+  color: #007bff;
+}
+.project-card-full p {
+  color: #6c757d; 
+  line-height: 1.7;
+}
+.project-tech-stack {
+  margin-top: 1.5rem;
+   display: flex;
+    flex-wrap: wrap; 
+    gap: 0.5rem;
+}
+.project-tech-stack span {
+  background-color: #e9ecef;
+   color: #495057; 
+   padding: 0.3rem 0.8rem; 
+   border-radius: 15px;
+    font-size: 0.85rem;
+}
+.project-links {
+  margin-top: 1.5rem; 
+  display: flex; 
+  gap: 1rem;
+}
+.project-link {
+  background-color: #007bff; 
+  color: #ffffff; 
+  padding: 0.6rem 1.2rem; 
+  border-radius: 5px; 
+  text-decoration: none; 
+  font-weight: bold;
+}
+.sidebar-widget {
+  background-color: #f8f9fa; 
+  padding: 1.5rem; 
+  border-radius: 8px; 
+  margin-bottom: 2rem;
+}
+.sidebar-widget h4 {
+  margin-top: 0; 
+  margin-bottom: 1rem; 
+  color: #212529; 
+  border-bottom: 2px solid #dee2e6; 
+  padding-bottom: 0.5rem;
+}
+.sidebar-list {
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+}
+.sidebar-list li {
+  color: #6c757d; 
+  margin-bottom: 0.5rem;
+}
