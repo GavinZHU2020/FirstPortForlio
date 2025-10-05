@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# Digital Portfolio for CS5709 - Software Engineering Evolution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a functional, multi-page digital portfolio created for the CS5709 module at the University of Limerick. It serves as a showcase of my skills, projects, and so on.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Multi-Page Architecture:** Built as a Single-Page Application (SPA) using React Router, featuring 7 distinct pages.
+- **Responsive Design:** Utilizes CSS Flexbox and Grid to ensure a consistent layout across various devices.
+- **Interactive Components:** Features interactive elements, such as the dynamic skills display on the "Skills" page.
+- **Component-Based:** Developed with a modular architecture in React.
+- **Sticky Sidebars:** Implements both fixed and sticky sidebars for enhanced user navigation and experience.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Core:** React, TypeScript, HTML5, CSS3
+- **Development Environment:** Vite
+- **Routing:** `react-router-dom`, `react-router-hash-link`
+- **Version Control:** Git, GitHub
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+To run this project locally, follow these steps:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+You need to have Node.js and npm installed on your machine.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Installation & Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  Clone the repository to your local machine:
+    ```sh
+    git clone [https://github.com/GavinZHU2020?tab=repositories]
+    ```
+2.  Navigate into the project directory:
+    ```sh
+    cd [FirstPortForlio]
+    ```
+3.  Install the necessary dependencies:
+    ```sh
+    npm install
+    ```
+4.  Install the type definitions for `react-router-hash-link`:
+    ```sh
+    npm i --save-dev @types/react-router-hash-link
+    ```
+5.  Start the development server:
+    ```sh
+    npm run dev
+    ```
+The application will be available at `http://localhost:5173`.
+
+*This project was created by Wenkai Zhu for Assessment 1 of the CS5709 module.*

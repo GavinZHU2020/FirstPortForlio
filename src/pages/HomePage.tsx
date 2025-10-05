@@ -15,7 +15,7 @@ const HomePage = () => {
 
           <nav className="main-nav">
             <Link to="/about">About Me</Link>
-            <Link to="/skills">Professional Knowledge</Link> 
+            <Link to="/skills">Skills</Link> 
             <Link to="/projects">Projects</Link>
             <Link to="/gallery">Gallery</Link> 
             <Link to="/blog">Blog</Link> 
