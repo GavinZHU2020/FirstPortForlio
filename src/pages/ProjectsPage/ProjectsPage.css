@@ -1,46 +1,15 @@
-/*1. page overall wrapper container */
 .page-wrapper {
-  max-width: 1400px; 
   margin: 0 auto; 
   padding: 3rem 4rem;
   box-sizing: border-box;
 }
 
-/* 2. page top header area */
-.page-header-container {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-.page-header-container h1 {
-  font-size: 3.5rem; 
-  color: #212529; 
-  display: inline-block;
-   margin-bottom: 1rem;
-}
-.page-header-container .page-intro {
-  max-width: 80ch;
-   margin: 0 auto; 
-   font-size: 1.1rem; 
-   color: #6c757d;
-}
-.subpage-nav {
-  text-align: left;
-   margin-bottom: 2rem;
-}
-.subpage-nav a {
-  font-weight: bold; 
-  color: #007bff; 
-  text-decoration: none;
-}
-
-/* 3. core two-column layout container */
 .main-layout-container {
   display: flex; 
   align-items: flex-start; 
   gap: 4rem; 
 }
 
-/* 4. left main content area */
 .main-content {
   flex: 1; 
   display: flex;
@@ -48,14 +17,12 @@
   gap: 2.5rem; 
 }
 
-/* 5. right fixed sidebar */
 .sidebar-sticky {
   flex: 0 0 300px; 
   position: sticky; 
   top: 3rem; 
 }
 
-/* 7. project card and sidebar widget styles */
 .project-card-full {
   background-color: #fff;
    border: 1px solid #dee2e6;

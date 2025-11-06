@@ -56,6 +56,7 @@ a:hover {
   width: 55%;
   padding: 6rem 4rem;
   box-sizing: border-box;
+  overflow-y: auto; /* Enable scrolling */
 }
 
 .profile-photo {
@@ -126,7 +127,7 @@ a:hover {
 }
 
 .project-card h3 {
-  margin-top: 0;
+  margin-top: 0; 
   margin-bottom: 0.75rem;
   font-size: 1.5rem;
   color: #3498db;
