@@ -1,13 +1,12 @@
-import type { Variants } from 'framer-motion';
-
-import { stagger } from 'framer-motion';
+import {stagger, type Variants} from 'framer-motion';
 
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-        delayChildren: stagger(0.1)
+
+        delayChildren:stagger(0.1),
     },
   },
 };

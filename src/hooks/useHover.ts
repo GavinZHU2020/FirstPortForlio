@@ -23,5 +23,5 @@ export const useHover = <T extends HTMLElement>() => {
         }
     }, []);
 
-    return [ref, isHovered] as const;/*d */
+    return [ref, isHovered] as const;
 };

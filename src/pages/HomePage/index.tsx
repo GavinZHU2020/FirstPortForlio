@@ -3,6 +3,7 @@ import reactlogo from '../../assets/wenkai.jpg';
 import '../../app/App.css';
 import { motion, AnimatePresence } from 'framer-motion'; // Animation
 import { useHover } from '../../hooks/useHover';
+
 // Hoverable section
 const HoverSection: React.FC<{ title: string; summary: string; linkTo: string; linkText: string; }> = ({ title, summary, linkTo, linkText }) => {
     const [hoverRef, isHovered] = useHover<HTMLElement>();
