@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import reactlogo from '../../assets/wenkai.jpg';
-import '../../app/App.css';
+import './HomePage.css';
 import { motion, AnimatePresence } from 'framer-motion'; // Animation
 import { useHover } from '../../hooks/useHover';
 

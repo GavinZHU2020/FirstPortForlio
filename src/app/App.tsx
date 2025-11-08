@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-import './App.css';
+
 import type { Transition } from "framer-motion";
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';

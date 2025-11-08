@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './PageHeader.css';
 import type { PageHeaderProps } from '../../types';
+//Provide a unified header area layout for subpages
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title, intro }) => {
     return (
