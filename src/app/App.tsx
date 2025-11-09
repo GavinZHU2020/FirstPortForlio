@@ -14,6 +14,8 @@ import GalleryPage from '../pages/GalleryPage';
 
 import WelcomeSplash from '../components/WelcomeSplash';
 
+import BlogPostPage from '../pages/BlogPage/BlogPostPage';
+
 const pageVariants = {
     initial: {
         opacity: 0,
@@ -118,6 +120,17 @@ function App() {
                             transition={pageTransition}
                         >
                             <BlogPage />
+                        </motion.div>
+                    } />
+                    <Route path="/blog/:slug" element={
+                        <motion.div
+                            initial="initial"
+                            animate="in"
+                            exit="out"
+                            variants={pageVariants}
+                            transition={pageTransition}
+                        >
+                            <BlogPostPage />
                         </motion.div>
                     } />
                     <Route path="/gallery" element={
