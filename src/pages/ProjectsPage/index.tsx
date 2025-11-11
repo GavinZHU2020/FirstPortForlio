@@ -27,15 +27,29 @@ const ProjectsPage = () => {
                         variants={fadeInUp}
                     >
                         <h3>First Portfolio</h3>
-                        <p>This is my first assignment, which consists of five pages including my profile, my project portfolio, my contact information, and more.</p>
+                        <p>This is my first assignment, which consists of several pages including my profile, my project portfolio, my contact information, and more.</p>
                         <div className="project-tech-stack">
                             <span>React</span>
                             <span>TypeScript</span>
                             <span>CSS Flexbox</span>
                         </div>
                         <div className="project-links">
-                            <a href="#" className="project-link">Live Demo</a>
-                            <a href="#" className="project-link">Source Code</a>
+                            <a
+                                href="https://gavinzhu2020.github.io/FirstPortForlio/"
+                                className="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Live Demo
+                            </a>
+                            <a
+                                href="https://github.com/GavinZHU2020/FirstPortForlio"
+                                className="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Source Code
+                            </a>
                         </div>
                     </motion.div>
 
@@ -43,8 +57,8 @@ const ProjectsPage = () => {
                         className="project-card-full"
                         variants={fadeInUp}
                     >
-                        <h3>Next Portfolio</h3>
-                        <p>This is my second assignment, including my requirements analysis, code, packages, readme, and more.</p>
+                        <h3>Project2</h3>
+                        <p>This is my project2, including my requirements analysis, code, packages, readme, and more.</p>
                         <div className="project-tech-stack">
                             <span>Node.js</span>
                             <span>Express</span>
