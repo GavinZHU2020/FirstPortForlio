@@ -1,63 +1,120 @@
+import { useEffect, useRef } from 'react';
 import './AboutPage.css';
-import yourProfileImage from '../../assets/wenkai.jpg';
 import PageHeader from '../../components/PageHeader';
-import Container from '@mui/material/Container'; // MUI container
-import { motion } from 'framer-motion'; // Animation
-import { fadeInUp } from '../../utils/animation'; // Animation variants
+import { motion } from 'framer-motion';
+import { fadeIn, staggerContainer } from '../../utils/animation';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import reactlogo from '../../assets/wenkai.jpg';
 
-const csImages = [
-  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+gsap.registerPlugin(ScrollTrigger);
+
+const skills = [
+    "React.js", "TypeScript", "JavaScript (ES6+)",
+    "HTML5 & CSS3", "Node.js", "Framer Motion",
+    "GSAP Animation", "Git & GitHub", "Responsive Design",
+    "Agile/Scrum", "UI/UX Principles", "REST APIs"
 ];
 
 const AboutPage = () => {
-    return (
-        <Container maxWidth="lg" sx={{ paddingY: '3rem' }}>
+    const imageRef = useRef<HTMLImageElement>(null);
+    const textSectionRef = useRef<HTMLDivElement>(null);
+    const marqueeRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(imageRef.current,
+                { opacity: 0, x: -50 },
+                {
+                    opacity: 1, x: 0, duration: 1,
+                    scrollTrigger: { trigger: imageRef.current, start: "top 80%" }
+                }
+            );
+
+            gsap.fromTo(textSectionRef.current,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1, y: 0, duration: 1, delay: 0.2,
+                    scrollTrigger: { trigger: textSectionRef.current, start: "top 80%" }
+                }
+            );
+
+            gsap.to(marqueeRef.current, {
+                xPercent: -50,
+                repeat: -1,
+                duration: 20,
+                ease: "linear"
+            });
+        });
+
+        return () => ctx.revert();
+    }, []);
+
+    return (
+        <Container maxWidth="lg" sx={{ paddingY: '4rem' }}>
             <PageHeader
                 title="About Me"
-                intro="Software Engineer | Lifelong Learner"
+                intro="Code enthusiast, problem solver, and lifelong learner."
             />
 
-            {/* Animate content */}
             <motion.div
-                className="about-page-content"
+                variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
-                variants={fadeInUp}
             >
-                <div className="about-left-panel">
-                    <img src={yourProfileImage} alt="WENKAI ZHU" className="about-page-photo" />
+                <Grid container spacing={6} alignItems="center">
+                    <Grid size={{ xs: 12, md: 5 }}>
+                        <motion.div variants={fadeIn('right', 'tween', 0.2, 1)}>
+                            <img src={reactlogo} alt="Profile" ref={imageRef} className="about-image" />
+                        </motion.div>
+                    </Grid>
 
-                    <div className="about-text-body">
-                        <p>
-                            Wenkai Zhu is a student studying Software Engineering at the University of Limerick, currently working on his software evolution assignment. This is his Assignment 1.
-                        </p>
-                        <div className="about-subsection">
-                            <h4>My Philosophy</h4>
-                            <p>
-                                Right now I'm diving deep into software evolution patterns and how to build
-                                systems that stand the test of time. This assignment is helping me explore
-                                those concepts hands-on.
-                            </p>
+                    <Grid size={{ xs: 12, md: 7 }}>
+                        <motion.div
+                            variants={fadeIn('left', 'tween', 0.4, 1)}
+                            ref={textSectionRef}
+                        >
+                            <Typography variant="h4" component="h2" gutterBottom className="about-heading">
+                                Designing the Future, <br/>
+                                <span className="about-heading-highlight">One Line of Code at a Time</span>
+                            </Typography>
+
+                            <Typography variant="body1" component="p" className="about-body-text">
+                                Hello, I'm Wenkai Zhu. My journey into software engineering has always been about more than just
+                                writing code — it's been about building solutions that make a difference. I specialize in developing
+                                <strong> strong and reliable front-end applications</strong> that combine clean design with seamless performance.
+                            </Typography>
+
+                            <Typography variant="body1" component="p" className="about-body-text">
+                                Currently pursuing my MSc at the University of Limerick, I am diving deep into advanced
+                                software patterns and modern web technologies. I believe that great software is born at the
+                                intersection of <strong>clean code</strong>, <strong>user-centric design</strong>, and <strong>creative innovation</strong>.
+                            </Typography>
+                        </motion.div>
+                    </Grid>
+                </Grid>
+
+                <Box className="about-skills-section">
+                    <Typography variant="h6" className="about-skills-title">
+                        My Tech Stack & Skills
+                    </Typography>
+
+                    <Box className="marquee-container">
+                        <div className="marquee-track" ref={marqueeRef}>
+                            {[...skills, ...skills].map((skill, index) => (
+                                <Paper key={index} elevation={0} className="skill-card">
+                                    {skill}
+                                </Paper>
+                            ))}
                         </div>
-                        <div className="about-subsection">
-                            <h4>Education</h4>
-                            <p>
-                                <strong>MSc in Software Engineering</strong><br />
-                                University of Limerick, 2025 - 2026
-                            </p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div className="about-right-panel">
-                    {csImages.map((src, index) => (
-                        <img key={index} src={src} alt={`Computer Science ${index + 1}`} />
-                    ))}
-                </div>
+                    </Box>
+                </Box>
+
             </motion.div>
         </Container>
     );

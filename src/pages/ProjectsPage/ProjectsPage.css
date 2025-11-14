@@ -4,28 +4,9 @@
   box-sizing: border-box;
 }
 
-.main-layout-container {
-  display: flex; 
-  align-items: flex-start; 
-  gap: 4rem; 
-}
-
-.main-content {
-  flex: 1; 
-  display: flex;
-    flex-direction: column; 
-  gap: 2.5rem; 
-}
-
-.sidebar-sticky {
-  flex: 0 0 300px; 
-  position: sticky; 
-  top: 3rem; 
-}
-
 .project-card-full {
-  background-color: #fff;
-   border: 1px solid #dee2e6;
+  background-color: var(--background-secondary);
+   border: 1px solid var(--border-primary);
     border-radius: 8px; 
     padding: 2rem;
 }
@@ -33,10 +14,10 @@
   margin-top: 0; 
   margin-bottom: 1rem; 
   font-size: 1.8rem; 
-  color: #007bff;
+  color: var(--accent-primary);
 }
 .project-card-full p {
-  color: #6c757d; 
+  color: var(--text-secondary); 
   line-height: 1.7;
 }
 .project-tech-stack {
@@ -46,8 +27,8 @@
     gap: 0.5rem;
 }
 .project-tech-stack span {
-  background-color: #e9ecef;
-   color: #495057; 
+  background-color: var(--background-tertiary);
+   color: var(--text-primary); 
    padding: 0.3rem 0.8rem; 
    border-radius: 15px;
     font-size: 0.85rem;
@@ -58,15 +39,15 @@
   gap: 1rem;
 }
 .project-link {
-  background-color: #007bff; 
-  color: #ffffff; 
+  background-color: var(--accent-primary); 
+  color: var(--background-secondary); 
   padding: 0.6rem 1.2rem; 
   border-radius: 5px; 
   text-decoration: none; 
   font-weight: bold;
 }
 .sidebar-widget {
-  background-color: #f8f9fa; 
+  background-color: var(--background-tertiary); 
   padding: 1.5rem; 
   border-radius: 8px; 
   margin-bottom: 2rem;
@@ -74,8 +55,8 @@
 .sidebar-widget h4 {
   margin-top: 0; 
   margin-bottom: 1rem; 
-  color: #212529; 
-  border-bottom: 2px solid #dee2e6; 
+  color: var(--text-headings); 
+  border-bottom: 2px solid var(--border-primary); 
   padding-bottom: 0.5rem;
 }
 .sidebar-list {
@@ -84,6 +65,40 @@
   margin: 0;
 }
 .sidebar-list li {
-  color: #6c757d; 
+  color: var(--text-secondary); 
   margin-bottom: 0.5rem;
+}
+
+/* --- Styles migrated from index.tsx --- */
+
+.projects-page-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.projects-filter-bar {
+    margin-bottom: 3rem;
+}
+
+.projects-search-field {
+    background-color: var(--background-secondary);
+    width: 100%;
+}
+
+/* Responsive width for search field */
+@media (min-width: 900px) {
+    .projects-search-field {
+        width: 300px;
+    }
+}
+
+.projects-tech-filters {
+    flex-wrap: wrap;
+    gap: 8px; /* Corresponds to MUI spacing(1) */
+}
+
+.projects-tech-filter-button {
+    border-radius: 20px !important;
+    text-transform: none !important;
+    margin-bottom: 8px !important;
 }

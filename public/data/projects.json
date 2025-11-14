@@ -1,0 +1,25 @@
+[
+    {
+        "id": "first-portfolio",
+        "title": "First Portfolio",
+        "description": "This is my first assignment, which consists of several pages including my profile, my project portfolio, my contact information, and more.",
+        "techStack": ["React", "TypeScript", "CSS Flexbox"],
+        "liveLink": "https://gavinzhu2020.github.io/FirstPortForlio/",
+        "repoLink": "https://github.com/GavinZHU2020/FirstPortForlio"
+    },
+    {
+        "id": "project-2",
+        "title": "Project 2 (Backend API)",
+        "description": "This is my project2, including my requirements analysis, code, packages, readme, and more.",
+        "techStack": ["Node.js", "Express", "MongoDB"],
+        "inProgress": true
+    },
+    {
+        "id": "weather-app",
+        "title": "Weather Dashboard",
+        "description": "A simple weather dashboard showing current conditions and forecast.",
+        "techStack": ["React", "API", "CSS Grid"],
+        "liveLink": "#",
+        "repoLink": "#"
+    }
+]

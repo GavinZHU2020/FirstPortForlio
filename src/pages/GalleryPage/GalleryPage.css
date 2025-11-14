@@ -6,8 +6,8 @@
 .gallery-item {
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #dee2e6;
-  background-color: #fff;
+  border: 1px solid var(--border-primary);
+  background-color: var(--background-secondary);
 }
 .gallery-item img {
   width: 100%;
@@ -17,4 +17,11 @@
 }
 .video-item {
   aspect-ratio: 4 / 3; 
+}
+
+/* --- Styles migrated from index.tsx --- */
+
+.gallery-page-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }

@@ -6,25 +6,19 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
-import Alert from '@mui/material/Alert';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '../../utils/animation';
-
+import { toast } from 'react-hot-toast';
 
 const FORM_ENDPOINT = 'https://formspree.io/f/meovjkqq';
 
 const ContactPage = () => {
-
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
-
-
-    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-    const [errorMessage, setErrorMessage] = useState('');
-
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
@@ -33,11 +27,16 @@ const ContactPage = () => {
         });
     };
 
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setStatus('submitting');
-        setErrorMessage('');
+
+        // Form validation
+        if (!formData.name || !formData.email || !formData.message) {
+            toast.error('Please fill in all required fields.');
+            return;
+        }
+
+        setIsSubmitting(true);
 
         try {
             const response = await fetch(FORM_ENDPOINT, {
@@ -50,21 +49,22 @@ const ContactPage = () => {
             });
 
             if (response.ok) {
-                setStatus('success');
-                setFormData({ name: '', email: '', message: '' }); // 清空表单
+                toast.success('Message sent successfully! Thank you.');
+                setFormData({ name: '', email: '', message: '' });
             } else {
                 const data = await response.json();
-                setErrorMessage(data.errors?.map((err: any) => err.message).join(', ') || 'Submission failed.');
-                setStatus('error');
+                const errorMessage = data.errors?.map((err: any) => err.message).join(', ') || 'Submission failed.';
+                toast.error(errorMessage);
             }
         } catch (error) {
-            setErrorMessage('Network error. Please try again.');
-            setStatus('error');
+            toast.error('Network error. Please try again.');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
     return (
-        <Container maxWidth="lg" sx={{ paddingY: '3rem' }}>
+        <Container maxWidth="lg" className="contact-page-container">
             <PageHeader
                 title="Get In Touch"
                 intro="I'm available for freelance work or full-time opportunities. If you wanna contact me, feel free to reach out."
@@ -76,23 +76,14 @@ const ContactPage = () => {
                 initial="hidden"
                 animate="visible"
             >
-
                 <Box
-                    className="contact-form-container"
+                    className="contact-form-box"
                     component="form"
                     onSubmit={handleSubmit}
-                    sx={{
-                        backgroundColor: 'white',
-                        padding: '2.5rem',
-                        borderRadius: '8px',
-                        border: '1px solid #e0e0e0',
-                        flex: 2
-                    }}
                 >
-                    <h4 style={{ marginTop: 0, marginBottom: '1.5rem', fontSize: '1.5rem', fontWeight: 600 }}>
+                    <h4 className="contact-form-title">
                         Quickly And Directly Email Me !
                     </h4>
-
 
                     <TextField
                         label="Your Name"
@@ -128,43 +119,24 @@ const ContactPage = () => {
                         margin="normal"
                     />
 
-
-                    <Box sx={{ position: 'relative', marginTop: '1rem' }}>
+                    <Box className="contact-submit-button-wrapper">
                         <Button
                             type="submit"
                             variant="contained"
                             size="large"
                             fullWidth
-                            disabled={status === 'submitting'}
-                            sx={{ paddingY: '0.8rem', fontSize: '1rem', fontWeight: 600 }}
+                            disabled={isSubmitting}
+                            className="contact-submit-button"
                         >
-                            {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
                         </Button>
-                        {status === 'submitting' && (
+                        {isSubmitting && (
                             <CircularProgress
                                 size={24}
-                                sx={{
-                                    position: 'absolute',
-                                    top: '50%',
-                                    left: '50%',
-                                    marginTop: '-12px',
-                                    marginLeft: '-12px',
-                                }}
+                                className="contact-submit-progress"
                             />
                         )}
                     </Box>
-
-
-                    {status === 'success' && (
-                        <Alert severity="success" sx={{ marginTop: '1.5rem' }}>
-                            Message sent successfully! Thank you.
-                        </Alert>
-                    )}
-                    {status === 'error' && (
-                        <Alert severity="error" sx={{ marginTop: '1.5rem' }}>
-                            Error: {errorMessage}
-                        </Alert>
-                    )}
                 </Box>
 
                 <aside className="contact-sidebar">
@@ -183,7 +155,6 @@ const ContactPage = () => {
                                 <strong>Location:</strong><br />
                                 Limerick, Ireland
                             </li>
-
                         </ul>
                     </div>
                 </aside>

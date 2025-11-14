@@ -6,11 +6,11 @@ import gallery4 from '../../assets/dog4.jpg';
 import PageHeader from '../../components/PageHeader';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeInUp } from '../../utils/animation';
-import Container from '@mui/material/Container'; // MUI container
+import Container from '@mui/material/Container';
 
 const GalleryPage = () => {
     return (
-        <Container maxWidth="lg" sx={{ paddingY: '3rem' }}>
+        <Container maxWidth="lg" className="gallery-page-container">
 
             <PageHeader
                 title="Pictures & Video Gallery"

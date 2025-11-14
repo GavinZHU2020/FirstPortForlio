@@ -2,7 +2,7 @@
   width: 100%; 
   margin: 0 ;
   padding: 3rem 4rem;
-  background-color: #ffffff;
+  background-color: var(--background-secondary);
   border-radius: 0;
   border: none;
   box-sizing: border-box;
@@ -19,7 +19,7 @@
 
 .subpage-nav a {
   font-weight: bold;
-  color: #007bff;
+  color: var(--accent-primary);
   text-decoration: none; 
 }
 
@@ -42,18 +42,18 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1.5rem;
-  border: 4px solid #e9ecef; 
+  border: 4px solid var(--border-secondary); 
 }
 
 .about-left-panel h1 {
   font-size: 3rem;
-  color: #212529;
+  color: var(--text-headings);
   margin: 0;
 }
 
 .about-left-panel .about-subtitle {
   font-size: 1.2rem;
-  color: #007bff;
+  color: var(--accent-primary);
   margin-top: 0.5rem;
   margin-bottom: 2rem;
 }
@@ -65,7 +65,7 @@
 .about-text-body p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #6c757d;
+  color: var(--text-secondary);
 }
 
 /* Right image panel */
@@ -79,7 +79,7 @@
 .about-right-panel img {
   width: 100%;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+  box-shadow: 0 5px 15px var(--card-shadow); 
   transition: transform 0.3s ease;
 }
 
@@ -102,8 +102,89 @@
 
 .about-subsection h4 {
     font-size: 1.3rem; 
-  color: #212529;
-  border-bottom: 2px solid #e9ecef; 
+  color: var(--text-headings);
+  border-bottom: 2px solid var(--border-secondary); 
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+}
+
+/* --- Styles migrated from index.tsx --- */
+
+.about-heading {
+    font-weight: bold;
+    color: var(--text-headings);
+}
+
+.about-heading-highlight {
+    color: var(--link-color);
+}
+
+.about-body-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.about-skills-title {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.about-skills-section {
+    margin-top: 6rem;
+    text-align: center;
+}
+
+/* --- Styles migrated from styles.ts --- */
+
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    transition: transform 0.3s ease-in-out;
+}
+.about-image:hover {
+    transform: scale(1.02);
+}
+
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    width: fit-content;
+}
+
+.skill-card {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-secondary);
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+.skill-card:hover {
+    background-color: var(--background-secondary);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    cursor: default;
 }

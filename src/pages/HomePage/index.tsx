@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import reactlogo from '../../assets/wenkai.jpg';
 import './HomePage.css';
-import { motion, AnimatePresence } from 'framer-motion'; // Animation
+import { motion, AnimatePresence } from 'framer-motion';
 import { useHover } from '../../hooks/useHover';
 
-// Hoverable section
+/**
+ * A reusable component that displays a section of content and reveals
+ * a link when the user hovers over it.
+ */
 const HoverSection: React.FC<{ title: string; summary: string; linkTo: string; linkText: string; }> = ({ title, summary, linkTo, linkText }) => {
     const [hoverRef, isHovered] = useHover<HTMLElement>();
 
@@ -31,7 +34,7 @@ const HoverSection: React.FC<{ title: string; summary: string; linkTo: string; l
             exit="exit"
             transition={{ duration: 0.2 }}
           >
-            <Link to={linkTo} style={{ fontWeight: 'bold', marginTop: '1rem', display: 'inline-block' }}>
+            <Link to={linkTo} className="hover-section-link">
               {linkText} →
             </Link>
           </motion.div>

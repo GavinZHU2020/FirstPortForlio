@@ -67,7 +67,7 @@ const BlogPage = () => {
     }, []);
 
     return (
-        <Container maxWidth="lg" sx={{ paddingY: '3rem' }}>
+        <Container maxWidth="lg" className="blog-page-container">
 
             <PageHeader
                 title="Blog"
@@ -76,14 +76,14 @@ const BlogPage = () => {
 
 
             {loading && (
-                <Box sx={{ display: 'flex', justifyContent: 'center', marginY: '5rem' }}>
+                <Box className="blog-status-indicator">
                     <CircularProgress size={60} />
                 </Box>
             )}
 
             {error && (
-                <Box sx={{ display: 'flex', justifyContent: 'center', marginY: '5rem' }}>
-                    <p style={{ color: 'red' }}>{error}</p>
+                <Box className="blog-status-indicator">
+                    <p className="blog-error-text">{error}</p>
                 </Box>
             )}
 

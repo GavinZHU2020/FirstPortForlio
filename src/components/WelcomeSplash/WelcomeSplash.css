@@ -1,14 +1,21 @@
-.welcome-splash-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.welcome-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a2b3b;
+    z-index: 9999;
 }
 
-.welcome-splash-container h1 {
-    font-size: 5rem;
-    font-weight: 600;
-    color: #2c3e50;
+.welcome-text {
+    font-size: 3rem;
+    color: #f0f0f0;
+    font-weight: bold;
+    text-align: center;
+
 }

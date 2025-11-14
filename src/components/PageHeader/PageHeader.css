@@ -1,6 +1,7 @@
 .page-header-container {
   margin-bottom: 3rem;
   text-align: center;
+  position: relative; /* Needed for absolute positioning of the button */
 }
 
 .subpage-nav {
@@ -9,17 +10,40 @@
 
 .subpage-nav a {
   font-weight: bold;
-  color: #007bff;
+  color: var(--accent-primary);
   text-decoration: none;
 }
 
 .page-header-container h1 {
   font-size: 3.5rem;
-  color: #212529;
+  color: var(--text-headings);
   margin-bottom: 0.5rem;
 }
 
 .page-intro {
   font-size: 1.3rem;
-  color: #6c757d;
+  color: var(--text-secondary);
+}
+
+.theme-toggle-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--background-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
 }

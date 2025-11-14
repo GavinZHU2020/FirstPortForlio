@@ -59,7 +59,7 @@ const BlogPostPage = () => {
 
     if (loading) {
         return (
-            <Container maxWidth="md" sx={{ paddingY: '5rem', textAlign: 'center' }}>
+            <Container maxWidth="md" className="blog-post-status-container">
                 <CircularProgress size={60} />
             </Container>
         );
@@ -67,7 +67,7 @@ const BlogPostPage = () => {
 
     if (error) {
         return (
-            <Container maxWidth="md" sx={{ paddingY: '3rem', textAlign: 'center' }}>
+            <Container maxWidth="md" className="blog-post-status-container">
                 <PageHeader title="Error" intro={error} />
                 <Link to="/blog">← Back to Blog List</Link>
             </Container>
@@ -76,7 +76,7 @@ const BlogPostPage = () => {
 
     if (!post) {
         return (
-            <Container maxWidth="md" sx={{ paddingY: '3rem', textAlign: 'center' }}>
+            <Container maxWidth="md" className="blog-post-status-container">
                 <PageHeader title="Not Found" intro="Could not find the requested post." />
                 <Link to="/blog">← Back to Blog List</Link>
             </Container>
@@ -84,13 +84,13 @@ const BlogPostPage = () => {
     }
 
     return (
-        <Container maxWidth="lg" sx={{ paddingY: '3rem' }}>
+        <Container maxWidth="lg" className="blog-post-page-container">
             <header className="page-header-container">
                 <nav className="subpage-nav">
                     <Link to="/blog">← Back to Blog List</Link>
                 </nav>
                 <h1>{post.title}</h1>
-                <p className="page-intro" style={{ fontSize: '1.1rem', color: '#7f8c8d' }}>
+                <p className="page-intro blog-post-publish-date">
                     Published on <time>{post.date}</time>
                 </p>
             </header>
