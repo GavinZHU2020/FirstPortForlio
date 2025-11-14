@@ -1,3 +1,12 @@
+/**
+ * BlogPostPage Component
+ * Fetches and displays a single blog post from Firestore based on the URL slug.
+ * Features:
+ * - Fetches a specific document from the 'blog' collection using the slug.
+ * - Renders post content as HTML using `dangerouslySetInnerHTML`.
+ * - Displays loading, error, and not-found states.
+ * @returns {JSX.Element} The rendered page for a single blog post.
+ */
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { db } from '../../../firebaseConfig';

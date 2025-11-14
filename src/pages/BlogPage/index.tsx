@@ -1,3 +1,12 @@
+/**
+ * BlogPage Component
+ * Fetches and displays a list of blog posts from a Firestore database.
+ * Features:
+ * - Fetches blog post summaries from the 'blog' collection in Firestore.
+ * - Displays loading and error states.
+ * - Links to individual blog post pages.
+ * @returns {JSX.Element} The rendered Blog page with a list of posts.
+ */
 import { Link } from 'react-router-dom';
 import './BlogPage.css';
 

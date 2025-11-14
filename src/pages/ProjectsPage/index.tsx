@@ -1,3 +1,12 @@
+/**
+ * ProjectsPage Component
+ * Displays a list of projects fetched from a local JSON file.
+ * Features:
+ * - Search functionality to filter projects by title or description.
+ * - Category buttons to filter projects by technology stack.
+ * - Responsive grid layout using Framer Motion for animations.
+ * @returns {JSX.Element} The rendered Projects page.
+ */
 import { useState, useMemo, useEffect } from 'react';
 import './ProjectsPage.css';
 import PageHeader from '../../components/PageHeader';

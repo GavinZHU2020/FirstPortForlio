@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import {useState, useEffect, lazy, Suspense} from 'react';
+import {useState,  lazy, Suspense} from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Toaster } from 'react-hot-toast';
@@ -45,12 +45,9 @@ function App() {
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 900);
-        return () => clearTimeout(timer);
-    }, []);
+    const handleAnimationComplete = () => {
+        setIsLoading(false);
+    };
 
     return (
         <>
@@ -67,7 +64,7 @@ function App() {
             <AnimatePresence mode="wait">
                 {isLoading ? (
                     <Suspense fallback={<LoadingFallback />}>
-                        <WelcomeSplash key="splash" />
+                        <WelcomeSplash key="splash" onAnimationComplete={handleAnimationComplete} />
                     </Suspense>
                 ) : (
                     <Suspense fallback={<LoadingFallback />}>

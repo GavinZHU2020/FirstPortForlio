@@ -1,3 +1,12 @@
+/**
+ * HomePage Component
+ * The main landing page of the portfolio, featuring a two-column layout.
+ * Features:
+ * - A left column with a profile photo, name, title, and main navigation links.
+ * - A right column with interactive sections that reveal links on hover.
+ * - Uses the `HoverSection` component to create these interactive areas.
+ * @returns {JSX.Element} The rendered Home page.
+ */
 import { Link } from 'react-router-dom';
 import reactlogo from '../../assets/wenkai.jpg';
 import './HomePage.css';

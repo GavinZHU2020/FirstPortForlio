@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import './WelcomeSplash.css';
 import gsap from 'gsap';
 
-const WelcomeSplash = () => {
+const WelcomeSplash = ({ onAnimationComplete }: { onAnimationComplete: () => void }) => {
     const textRef = useRef(null);
     const containerRef = useRef(null);
 
@@ -18,33 +18,32 @@ const WelcomeSplash = () => {
 
         tl.to(containerRef.current, {
             backgroundColor: '#0a192f',
-            duration: 0.8
+            duration: 1.5
         })
             .fromTo(textRef.current,
                 { y: 50, opacity: 0, scale: 0.8 },
-                { y: 0, opacity: 1, scale: 1, duration: 1.2, delay: 0.2 },
+                { y: 0, opacity: 1, scale: 1, duration: 2, delay: 0.5 },
                 "<"
             )
 
             .to(containerRef.current, {
                 opacity: 0,
-                duration: 1.2,
-                delay: 0.8,
-                onComplete: () => {
-                }
+                duration: 2.0,
+                delay: 1.0,
+                onComplete: onAnimationComplete
             });
 
         return () => {
             tl.kill();
         };
-    }, []);
+    }, [onAnimationComplete]);
 
     return (
         <motion.div
             ref={containerRef}
             className="welcome-splash"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.7 } }}
+            exit={{ opacity: 0, transition: { duration: 0.7} }}
         >
             <motion.div
                 ref={textRef}

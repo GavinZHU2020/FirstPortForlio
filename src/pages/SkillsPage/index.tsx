@@ -1,3 +1,13 @@
+/**
+ * SkillsPage Component
+ * Fetches and displays a list of skills from a local JSON file.
+ * Features:
+ * - Fetches skill data from `data/skills.json`.
+ * - An interactive sidebar to select a skill.
+ * - A main content area that displays the description of the selected skill.
+ * - Framer Motion for animations.
+ * @returns {JSX.Element} The rendered Skills page.
+ */
 import { useState, useEffect } from 'react';
 import './SkillsPage.css';
 import PageHeader from "../../components/PageHeader";

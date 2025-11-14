@@ -1,3 +1,12 @@
+/**
+ * GalleryPage Component
+ * Displays a gallery of images and embedded YouTube videos.
+ * Features:
+ * - A grid layout for images and videos.
+ * - Framer Motion for entry animations.
+ * - Embedded YouTube videos using iframes.
+ * @returns {JSX.Element} The rendered Gallery page.
+ */
 import './GalleryPage.css';
 import gallery1 from '../../assets/dog1.jpg';
 import gallery2 from '../../assets/dog2.jpg';

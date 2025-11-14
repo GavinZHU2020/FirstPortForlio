@@ -1,3 +1,12 @@
+/**
+ * ContactPage Component
+ * Provides a form for users to send a message via Formspree.
+ * Features:
+ * - A contact form with fields for name, email, and message.
+ * - Form submission handled by Formspree.
+ * - User feedback on submission status (loading, success, error) via react-hot-toast.
+ * @returns {JSX.Element} The rendered Contact page with the contact form.
+ */
 import { useState } from 'react';
 import './ContactPage.css';
 import PageHeader from '../../components/PageHeader';

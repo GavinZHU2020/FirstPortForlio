@@ -1,3 +1,12 @@
+/**
+ * AboutPage Component
+ * Displays a detailed "About Me" section with a profile image, biography, and a scrolling marquee of skills.
+ * Features:
+ * - GSAP animations for scroll-triggered fade-in effects.
+ * - A continuous scrolling marquee for showcasing technical skills.
+ * - Responsive layout using Material-UI Grid.
+ * @returns {JSX.Element} The rendered About page.
+ */
 import { useEffect, useRef } from 'react';
 import './AboutPage.css';
 import PageHeader from '../../components/PageHeader';
