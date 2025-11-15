@@ -5,6 +5,7 @@ This project is an advanced, dynamic, multi-page digital portfolio built for the
 This Phase 2 version has evolved significantly from the original, incorporating peer feedback to implement advanced features, a robust technology stack, and a fully responsive user experience.
 
 **[➡️ View Live Demo Here](https://GavinZHU2020.github.io/FirstPortForlio/)** 
+
 ##  Key Features
 
 * **Dynamic Content Management:**
@@ -33,6 +34,14 @@ This Phase 2 version has evolved significantly from the original, incorporating 
 * **Routing:** `react-router-dom`
 * **Data & API:** Firebase (Firestore), Formspree
 * **Tooling:** Git, GitHub, GitHub Actions (for CI/CD)
+
+## CI/CD Pipeline
+This project uses GitHub Actions for continuous integration and continuous deployment (CI/CD). The workflow is defined in `.github/workflows/deploy.yml` and automates the deployment of the portfolio to GitHub Pages.
+
+Key steps in the pipeline:
+* **Trigger:** The action automatically runs on every `push` to the `main` branch.
+* **Build:** It sets up a Node.js 20.x environment, installs dependencies using `npm ci`, and builds the static site with `npm run build`.
+* **Deploy:** The resulting `./dist` directory is then deployed to the `gh-pages` branch using the `peaceiris/actions-gh-pages` action, which updates the live demo site.
 
 ##  Getting Started
 
