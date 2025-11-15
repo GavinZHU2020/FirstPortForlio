@@ -77,6 +77,10 @@ h1 {
     line-height: 1.1;
     color: var(--text-headings);
 }
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 button {
     border-radius: 8px;
@@ -126,4 +130,29 @@ button:focus-visible {
     align-items: center;
     height: 80vh;
     width: 100%;
+}
+
+@media (max-width: 900px) {
+    .main-layout-container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .sidebar-sticky {
+        flex-basis: auto;
+        width: 100%;
+        position: relative;
+        top: auto;
+    }
+
+
+    .page-header-container h1 {
+        font-size: 2.8rem;
+    }
+    .page-intro {
+        font-size: 1.15rem;
+    }
+    .page-header-container {
+        margin-bottom: 2rem;
+    }
 }

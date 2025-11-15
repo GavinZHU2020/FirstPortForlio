@@ -12,8 +12,7 @@ import { useState, useEffect } from 'react';
 import './SkillsPage.css';
 import PageHeader from "../../components/PageHeader";
 import Container from '@mui/material/Container';
-import { motion } from 'framer-motion';
-import { staggerContainer, fadeInUp } from '../../utils/animation';
+import { motion, type Variants } from 'framer-motion';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
@@ -22,6 +21,11 @@ interface Skill {
     name: string;
     description: string;
 }
+
+const fadeIn: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeInOut" } }
+};
 
 const SkillsPage = () => {
     const [skillsData, setSkillsData] = useState<Skill[]>([]);
@@ -67,23 +71,20 @@ const SkillsPage = () => {
         }
 
         return (
-            <>
-                <motion.main
+            <div className="main-layout-container">
+                <main
                     className="main-content skills-container"
-                    variants={fadeInUp}
                 >
                     <div className="skills-display-area">
-                        {/* Use a key to force re-render on activeSkill change for animation */}
-                        <motion.div key={activeSkill.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+                        <motion.div key={activeSkill.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                             <h2>{activeSkill.name}</h2>
                             <p>{activeSkill.description}</p>
                         </motion.div>
                     </div>
-                </motion.main>
+                </main>
 
-                <motion.aside
+                <aside
                     className="sidebar-sticky"
-                    variants={fadeInUp}
                 >
                     <div className="sidebar-widget">
                         <h4>My Tech Stack</h4>
@@ -99,8 +100,8 @@ const SkillsPage = () => {
                             ))}
                         </div>
                     </div>
-                </motion.aside>
-            </>
+                </aside>
+            </div>
         );
     };
 
@@ -112,10 +113,9 @@ const SkillsPage = () => {
             />
 
             <motion.div
-                variants={staggerContainer}
+                variants={fadeIn}
                 initial="hidden"
                 animate="visible"
-                className="main-layout-container"
             >
                 {renderContent()}
             </motion.div>

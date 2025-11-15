@@ -18,18 +18,18 @@ const WelcomeSplash = ({ onAnimationComplete }: { onAnimationComplete: () => voi
 
         tl.to(containerRef.current, {
             backgroundColor: '#0a192f',
-            duration: 1.5
+            duration: 1.2
         })
             .fromTo(textRef.current,
                 { y: 50, opacity: 0, scale: 0.8 },
-                { y: 0, opacity: 1, scale: 1, duration: 2, delay: 0.5 },
+                { y: 0, opacity: 1, scale: 1, duration: 1.5, delay: 0.5 },
                 "<"
             )
 
             .to(containerRef.current, {
                 opacity: 0,
-                duration: 2.0,
-                delay: 1.0,
+                duration: 1.0,
+                delay: 0.5,
                 onComplete: onAnimationComplete
             });
 

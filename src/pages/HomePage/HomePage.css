@@ -1,3 +1,39 @@
+/* --- Hamburger Menu Button --- */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 30px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+
+.menu-toggle.open .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+.menu-toggle.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 .portfolio-container {
     position: relative;
 }
@@ -153,4 +189,83 @@
 .contact-info strong {
     color: var(--text-secondary);
     margin-right: 0.75rem;
+}
+
+
+/* --- Responsive Styles for Mobile --- */
+@media (max-width: 900px) {
+
+    .left-column {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-primary);
+
+    }
+
+    .left-content {
+        position: relative;
+        width: 100%;
+    }
+
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    .main-nav {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--background-secondary-translucent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 0;
+    }
+
+
+    .main-nav.open {
+        opacity: 1;
+        visibility: visible;
+        z-index: 5;
+    }
+
+
+    .main-nav a {
+        font-size: 1.8rem;
+        color: var(--text-headings);
+    }
+
+
+    .right-column {
+        margin-left: 0;
+        width: 100%;
+        padding: 3rem 1.5rem;
+    }
+
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 2rem;
+    }
+
+    .main-name {
+        font-size: 2.5rem;
+    }
 }

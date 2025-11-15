@@ -12,16 +12,7 @@
   flex-grow: 1;
 }
 
-.subpage-nav {
-  margin-bottom: 2rem;
-  text-align: left;
-}
 
-.subpage-nav a {
-  font-weight: bold;
-  color: var(--accent-primary);
-  text-decoration: none; 
-}
 
 /* Core layout: make the content area a flex container */
 .about-page-content {
